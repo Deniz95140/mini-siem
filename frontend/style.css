@@ -1,0 +1,391 @@
+/* Variables CSS pour les couleurs */
+:root {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --bg-card: #0f3460;
+    --text-primary: #eee;
+    --text-secondary: #aaa;
+    --accent: #e94560;
+    --success: #00d25b;
+    --warning: #ffab00;
+    --danger: #fc424a;
+    --info: #0090e7;
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* Header */
+header {
+    background-color: var(--bg-secondary);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--accent);
+}
+
+.header-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Boutons */
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: var(--info);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0078c9;
+}
+
+.btn-danger {
+    background-color: var(--danger);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #e03e44;
+}
+
+/* Indicateur de statut */
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-card);
+    border-radius: 20px;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--success);
+    border-radius: 50%;
+}
+
+/* Main content */
+main {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Section niveau de menace */
+.threat-level-section {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.threat-level-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.threat-level {
+    max-width: 350px;
+    margin: 0.5rem auto;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background-color: var(--bg-card);
+}
+
+.threat-level-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.threat-level-bar {
+    height: 20px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.threat-level-fill {
+    height: 100%;
+    width: 25%;
+}
+
+.threat-level.low .threat-level-fill {
+    background-color: var(--success);
+    width: 25%;
+}
+
+.threat-level.medium .threat-level-fill {
+    background-color: var(--warning);
+    width: 50%;
+}
+
+.threat-level.high .threat-level-fill {
+    background-color: #ff6b6b;
+    width: 75%;
+}
+
+.threat-level.critical .threat-level-fill {
+    background-color: var(--danger);
+    width: 100%;
+}
+
+/* Section statistiques */
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background-color: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.stat-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--info);
+}
+
+.stat-value.critical {
+    color: var(--danger);
+}
+
+.stat-value.high {
+    color: #ff6b6b;
+}
+
+.stat-value.medium {
+    color: var(--warning);
+}
+
+/* Graphiques */
+.charts-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.chart-container {
+    background-color: var(--bg-card);
+    padding: 1rem;
+    border-radius: 10px;
+    height: 300px; /* Hauteur fixe pour les graphiques */
+}
+
+.chart-container h3 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.chart-container canvas {
+    max-height: 250px !important;
+}
+
+/* Alertes */
+.alerts-section {
+    margin-bottom: 2rem;
+}
+
+.alerts-section h2 {
+    margin-bottom: 1rem;
+    color: var(--accent);
+    font-size: 1.4rem;
+}
+
+.alerts-container {
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.alert-item {
+    background-color: rgba(255,255,255,0.05);
+    padding: 0.8rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    border-left: 4px solid;
+}
+
+.alert-item.CRITICAL {
+    border-left-color: var(--danger);
+}
+
+.alert-item.HIGH {
+    border-left-color: #ff6b6b;
+}
+
+.alert-item.MEDIUM {
+    border-left-color: var(--warning);
+}
+
+.alert-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.alert-type {
+    font-weight: bold;
+}
+
+.alert-time {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.alert-description {
+    margin-bottom: 0.5rem;
+}
+
+.alert-details {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Logs */
+.logs-section h2 {
+    margin-bottom: 1rem;
+    color: var(--info);
+    font-size: 1.4rem;
+}
+
+.logs-filter {
+    margin-bottom: 1rem;
+}
+
+.logs-filter select {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.logs-container {
+    max-height: 350px;
+    overflow-y: auto;
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.log-item {
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.8rem;
+    padding: 0.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.log-time {
+    color: var(--text-secondary);
+    white-space: nowrap;
+    font-size: 0.75rem;
+}
+
+.log-level {
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.log-level.INFO {
+    background-color: var(--info);
+}
+
+.log-level.WARNING {
+    background-color: var(--warning);
+}
+
+.log-level.ERROR {
+    background-color: var(--danger);
+}
+
+.log-level.CRITICAL {
+    background-color: #8b0000;
+}
+
+.log-message {
+    flex: 1;
+    word-wrap: break-word;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-secondary);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.85rem;
+}
+
+/* Loading */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.05);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.2);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.3);
+}

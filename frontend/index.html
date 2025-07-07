@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini SIEM - Security Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>🛡️ Mini SIEM - Security Dashboard</h1>
+        <div class="header-actions">
+            <button onclick="generateSampleData()" class="btn btn-primary">📊 Générer des données de test</button>
+            <button onclick="clearAllData()" class="btn btn-danger">🗑️ Effacer les données</button>
+            <span class="status-indicator">
+                <span class="status-dot"></span>
+                <span id="status-text">En ligne</span>
+            </span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section niveau de menace -->
+        <section class="threat-level-section">
+            <h2>Niveau de Menace Global</h2>
+            <div id="threat-level" class="threat-level low">
+                <div class="threat-level-text">FAIBLE</div>
+                <div class="threat-level-bar">
+                    <div class="threat-level-fill"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section statistiques -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <h3>Total des Logs</h3>
+                <div class="stat-value" id="total-logs">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Alertes Critiques (24h)</h3>
+                <div class="stat-value critical" id="critical-alerts">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Alertes Hautes (24h)</h3>
+                <div class="stat-value high" id="high-alerts">0</div>
+            </div>
+            <div class="stat-card">
+                <h3>Alertes Moyennes (24h)</h3>
+                <div class="stat-value medium" id="medium-alerts">0</div>
+            </div>
+        </section>
+
+        <!-- Graphiques -->
+        <section class="charts-section">
+            <div class="chart-container">
+                <h3>Logs par Heure (24h)</h3>
+                <canvas id="logs-chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Top 10 IPs Actives</h3>
+                <canvas id="ips-chart"></canvas>
+            </div>
+        </section>
+
+        <!-- Alertes récentes -->
+        <section class="alerts-section">
+            <h2>🚨 Alertes Récentes</h2>
+            <div id="alerts-container" class="alerts-container">
+                <div class="loading">Chargement des alertes...</div>
+            </div>
+        </section>
+
+        <!-- Logs récents -->
+        <section class="logs-section">
+            <h2>📋 Logs Récents</h2>
+            <div class="logs-filter">
+                <label>
+                    Filtrer par niveau:
+                    <select id="log-level-filter" onchange="filterLogs()">
+                        <option value="">Tous</option>
+                        <option value="CRITICAL">Critique</option>
+                        <option value="ERROR">Erreur</option>
+                        <option value="WARNING">Avertissement</option>
+                        <option value="INFO">Info</option>
+                    </select>
+                </label>
+            </div>
+            <div id="logs-container" class="logs-container">
+                <div class="loading">Chargement des logs...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Mini SIEM v1.0 - Projet Blue Teaming | Actualisé toutes les 5 secondes</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
